@@ -1,4 +1,4 @@
-from collections import deque
+
 
 # Estrutura dos itens: [codigo, nome, descricao, preco, estoque]
 itens = [
@@ -15,9 +15,9 @@ codigo_item = 9
 
 # Estrutura dos pedidos: [codigo, cliente, lista_itens, status, cupom, desconto, total]
 # lista_itens: lista de [nome, qtd, preco]
-fila_pendentes = deque()
-fila_aceitos = deque()
-fila_prontos = deque()
+fila_pendentes =[]
+fila_aceitos = []
+fila_prontos = []
 pedidos = []
 codigo_pedido = 1
 
@@ -133,7 +133,7 @@ def processar_pedidos_pendentes():
         else:
             pedido[3] = "REJEITADO"
             print("Pedido rejeitado.")
-        fila_pendentes.popleft()
+        fila_pendentes.pop(0)
 
 def atualizar_status_pedido():
     cod = int(input("Digite o código do pedido: "))
@@ -280,4 +280,5 @@ while True:
         break
 
     else:
+
         print("Opção inválida.")
